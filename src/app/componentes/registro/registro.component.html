@@ -1,0 +1,36 @@
+<div class="container card" >
+    <div class="row card-body align-items-center">
+      <div class="col align-self-center">
+        <form>
+
+        
+           <div @IzquierdaDerecha class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Escribe tu nombre...">
+            <label for="floatingInput">Nombre</label>
+          </div><br>
+
+          <div @DerechaIzquierda  class="form-floating">
+            <input type="text" class="form-control" id="floatingPassword" placeholder="Escribe un usuario...">
+            <label for="floatingPassword">Usuario</label>
+          </div><br>
+         
+          <div @IzquierdaDerecha class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Correo electronico</label>
+          </div> <br>
+
+          <div @DerechaIzquierda  class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Contrasena</label>
+          </div> <br>
+        
+          <div @IzquierdaDerecha  class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Confirmar contrasena</label>
+          </div> <br>
+          <button @ArribaAbajo type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
