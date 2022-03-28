@@ -1,1 +1,60 @@
-<p>comprar-auto works!</p>
+<div class="container mt-1">
+
+    <div class="row">
+        <div class="col-md-2 m-1" >
+            
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+              
+                <div class="accordion-item mb-2">
+                  <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    
+                    <button class="accordion-button" id="fondo" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                      Transmicion
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                  
+                    </div>
+                  </div>
+                </div>           
+            </div> 
+        </div>
+
+
+
+        <div class="col m-1">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="../../assets/gara.png" class="img-thumbnail" alt="...">
+                        <div class="card-body" *ngFor="let auto of vehiculos">
+                          <h5 class="card-title">
+                              <div class="row">
+                            <div class="col-12 text-truncate">
+                              {{auto.marca}} {{auto.modelo}} 
+
+                            </div>
+                          </div></h5>
+                          <p class="card-text">
+                            <span class="d-inline-block text-truncate" style="max-width: 100%;">
+                                Tipo :  {{auto.tipo}}  
+                            </span>
+                            <span class="d-inline-block text-truncate" style="max-width: 100%;">
+                                Transmicion : {{auto.transimicion}}
+                            </span>
+                            
+                          </p>
+                          <div class="d-grid gap-2">
+                            <button class="btn" id="fondo" type="button">Ver</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+            </div>
+        </div>
+    </div>
+</div>

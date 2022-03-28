@@ -1,0 +1,126 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
+import { User3 } from 'src/app/Models/usuers.response';
+import { PeticionService } from 'src/app/services/peticion/peticion.service';
+@Component({
+  selector: 'app-detalles-v',
+  templateUrl: './detalles-v.component.html',
+  styleUrls: ['./detalles-v.component.css'],
+  animations: [
+    trigger("ArribaAbajo", [
+      state("void", style({
+        transform: "translateY(-100%)",
+        opacity: 0
+      })),
+      transition(":enter", [
+        animate(800, style({
+          transform:"translateY(0)",
+          opacity:1
+        }))
+      ])
+    ]),
+    trigger("AbajoArriba", [
+      state("void", style({
+        transform: "translateY(+100%)",
+        opacity: 0
+      })),
+      transition(":enter", [
+        animate(800, style({
+          transform:"translateY(0)",
+          opacity:1
+        }))
+      ])
+    ]),
+    trigger("IzquierdaDerecha", [
+      state("void", style({
+        transform: "translateX(-100%)",
+        opacity: 0
+      })),
+      transition(":enter", [
+        animate(800, style({
+          transform:"translateX(0)",
+          opacity:1
+        }))
+      ])
+    ]),
+    trigger("DerechaIzquierda", [
+      state("void", style({
+        transform: "translateX(+100%)",
+        opacity: 0
+      })),
+      transition(":enter", [
+        animate(800, style({
+          transform:"translateX(0)",
+          opacity:1
+        }))
+      ])
+    ]),
+  ],
+})
+export class DetallesVComponent implements OnInit {
+  id = 0
+  public usuario: User3 = {
+    nombres:'',
+    apellidos:'',
+    email:'',
+    username:''
+  }
+  error = false
+  actualizar = false
+  constructor(private peticion: PeticionService, private router:Router,private activatedRouter: ActivatedRoute) {
+    this.activatedRouter.params.subscribe(
+      params=>{
+        this.getUser(params['id'])
+      }
+    )
+
+  }
+
+  getUser(id: any){
+    this.id= id
+    this.peticion.getOne(id).subscribe(
+      respuesta=>{
+        this.usuario = respuesta.user
+      })
+  }
+  eliminar(){
+    this.peticion.delete(this.id).subscribe(
+      respuesta=>{
+          this.usuario = respuesta.user
+          alert(respuesta.mensaje)
+          this.router.navigateByUrl('/lista')
+      },
+      error=>{
+        this.error = true
+        alert("Ha habido un error al procesar la solicitud")
+      })
+  }
+
+  modificar(){
+    this.peticion.update(this.id,this.usuario).subscribe(
+      respuesta=>{
+          this.usuario = respuesta.user
+          alert(respuesta.mensaje)
+          this.router.navigateByUrl('/lista')
+      },
+      error=>{
+        this.error = true
+        alert("Ha habido un error al procesar la solicitud")
+      })
+
+  } 
+  inputs(){
+    this.actualizar = !this.actualizar
+  }
+  ngOnInit(): void {
+  }
+
+}

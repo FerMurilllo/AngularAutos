@@ -1,0 +1,94 @@
+
+<h1  >ANADIR VEHICULO</h1>
+<div class="container card" >
+    <div class="row card-body align-items-center">
+      <div class="col align-self-center">
+        <form #forma="ngForm">
+
+          <div @IzquierdaDerecha class="form-floating mb-3">
+            <select [(ngModel)]="auto.marca"  class="form-select" aria-label="Default select example">
+              <option selected>Marca</option>
+              <option value="1"  >One</option>
+              <option value="2"  >Two</option>
+              <option value="3"  >Three</option>
+            </select>
+           
+          </div><br>
+        
+           <div @IzquierdaDerecha class="form-floating mb-3">
+            <select [(ngModel)]="auto.modelo"  class="form-select" aria-label="Default select example">
+              <option selected> Modelo </option>
+              <option value="1"  >One</option>
+              <option value="2"  >Two</option>
+              <option value="3"  >Three</option>
+            </select>
+          
+          </div><br>
+
+          <div @IzquierdaDerecha class="form-floating mb-3">
+            <select [(ngModel)]="auto.tipo"  class="form-select" aria-label="Default select example">
+              <option selected>Tipo</option>
+              <option value="1"  >One</option>
+              <option value="2"  >Two</option>
+              <option value="3"  >Three</option>
+            </select>
+           
+          </div><br>
+
+          <div @DerechaIzquierda  class="form-floating">
+            <select [(ngModel)]="auto.color"  class="form-select" aria-label="Default select example">
+              <option selected>Color</option>
+              <option value="1"  >One</option>
+              <option value="2"  >Two</option>
+              <option value="3"  >Three</option>
+            </select>
+           
+          </div><br>
+         
+          <div @IzquierdaDerecha class="form-floating mb-3">
+            <select [(ngModel)]="auto.transimicion"  class="form-select" aria-label="Default select example">
+              <option selected>Tipo de Transmicion</option>
+              <option value="1"  >One</option>
+              <option value="2"  >Two</option>
+              <option value="3"  >Three</option>
+            </select>
+          
+          </div> <br>
+
+          <div @DerechaIzquierda  class="form-floating">
+            <select [(ngModel)]="auto.combustible"  class="form-select" aria-label="Default select example">
+              <option selected>Tipo de Combustible</option>
+              <option value="1"  >One</option>
+              <option value="2"  >Two</option>
+              <option value="3"  >Three</option>
+            </select>
+          </div> <br>
+
+          <div @IzquierdaDerecha class="form-floating mb-3">
+            <select [(ngModel)]="auto.puertas"  class="form-select" aria-label="Default select example">
+              <option selected>Numero de puertas</option>
+              <option value="1"  >One</option>
+              <option value="2"  >Two</option>
+              <option value="3"  >Three</option>
+            </select>
+          
+          </div> <br>
+          
+            <div @IzquierdaDerecha class="input-group form-floating mb-3">
+              <span class="input-group-text">$</span>
+              <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+              <span class="input-group-text">.00</span>
+            </div>
+         <br>
+
+         <div class="form-floating input-group  mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Kilometraje</span>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+          <button @ArribaAbajo  (click)="send()" [disabled]="!forma.valid"  type="submit" class="btn btn-primary">Registrar auto</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

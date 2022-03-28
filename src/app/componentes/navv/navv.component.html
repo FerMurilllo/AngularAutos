@@ -1,80 +1,36 @@
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
-    <div class="container-fluid">
-      <a class="navbar-brand  " style="color: black;  " href="#"> A u t o M a x</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class=" navbar" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"  routerLink="/home">Inicio</a>
-          </li> &nbsp;&nbsp;&nbsp;&nbsp;
-          <li class="nav-item">
-            <a class="nav-link active " aria-current="page"  routerLink="/comprar-auto" >Autos</a>
-          </li> &nbsp;&nbsp;&nbsp;&nbsp;
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"  routerLink="/nosotros" >Nosotros</a>
-          </li> &nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-        </ul>
-          <ul class="navbar-nav ml-auto nav-flex-icons">
-            <form class="d-flex">
-                <input  class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-success" type="submit">Buscar</button>
-              </form>
+<header class="header">
+  <nav id="navbarprincipal" class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid" >
+      
+      <a class="btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+          User
+      </a>
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link">
-                <div class="btn-group" mdbDropdown>
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="assets/u.png" width="35" height="35" alt="">  Mi cuenta  
-                      </a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-primary">
-                    <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#exampleModal"   routerLink="/sesion">Iniciar Sesion</button>
-                    <a class="dropdown-item" routerLink="/registro">Registrarme</a>
-                  </div>
-                </div>
-              </a>
+              <a class="nav-link active" aria-current="page" routerLink="/home">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/comprar-auto">Vehiculos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/Nosotros">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/Preguntas">Preguntas</a>
             </li>
           </ul>
-
-      </div>
-    </div>
-  </nav>
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Inicia sesión</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark" type="submit">Buscar</button>
+          </form>
         </div>
-        <div class="modal-body">
-          
-   
-    <div class="row card-body align-items-center">
-      <div class="col align-self-center">
-        <form>
-          <div  class="form-floating">
-            <input type="text" class="form-control" id="floatingPassword" placeholder="Escribe tu usuario...">
-            <label for="floatingPassword">Usuario</label>
-          </div>
-         
-          <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Contraseña</label>
-          </div>
-         <br>
-          <button type="submit" class="btn btn-primary">Inicia sesión</button> &nbsp;
-          <button type="button" class="btn btn-secondary" routerLink="/home" data-bs-dismiss="modal">Regresar</button>
-        </form>
       </div>
-    </div>
-        
-     
-      </div>
-    </div>
-  </div>
-   
-   
-     
+    </nav>
+</header>
+
+<app-off-canvas-bar></app-off-canvas-bar>

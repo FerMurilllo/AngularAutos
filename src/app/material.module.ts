@@ -6,14 +6,15 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { FormsModule } from "@angular/forms";
 @NgModule({
     imports: [MatToolbarModule, 
         MatCardModule, 
         MatButtonModule,
         MatIconModule,
         MatStepperModule,
-        CdkStepperModule
-        
+        CdkStepperModule,
+        FormsModule
     ]
 })
 

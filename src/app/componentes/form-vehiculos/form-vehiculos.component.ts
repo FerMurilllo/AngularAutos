@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {  Auto } from 'src/app/Models/autos.response';
+import { ServiService } from 'src/app/services/autos/autos.service'; 
+
 import {
-  trigger,state,style,animate,transition,keyframes,// ...
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  keyframes,
+  // ...
 } from '@angular/animations';
-
-
-
 @Component({
-  selector: 'app-sesion',
-  templateUrl: './sesion.component.html',
-  styleUrls: ['./sesion.component.css'],
-  animations: [
+  selector: 'app-form-vehiculos',
+  templateUrl: './form-vehiculos.component.html',
+  styleUrls: ['./form-vehiculos.component.css'],
+  animations:  [
     trigger("ArribaAbajo", [
       state("void", style({
         transform: "translateY(-100%)",
@@ -60,24 +67,38 @@ import {
     ]),
   ],
 })
-export class SesionComponent implements OnInit {
-  // isLinear = false;
-  // firstFormGroup: FormGroup;
-  // secondFormGroup: FormGroup;
+export class FormVehiculosComponent implements OnInit {
 
-  // constructor(private _formBuilder: FormBuilder) {}
+  auto: Auto ={
+    
+    id:0,
+    marca:0 ,
+    modelo: 0,
+    tipo: 0,
+    color: 0,
+    transimicion: 0,
+    combustible: 0,
+    precio: 0.00,
+    kilometraje: 0,
+    puertas: 0
+  }
+  error = false
 
-  // ngOnInit() {
-  //   this.firstFormGroup = this._formBuilder.group({
-  //     firstCtrl: ['', Validators.required],
-  //   });
-  //   this.secondFormGroup = this._formBuilder.group({
-  //     secondCtrl: ['', Validators.required],
-  //   });
-  // }
-
-  constructor() { }
+  constructor(private peticion: ServiService, private router: Router ) { }
 
   ngOnInit(): void {
   }
+
+  send(){
+    this.peticion.crear(this.auto).subscribe(respuesta=>{
+      this.router.navigateByUrl('lista');
+      alert(respuesta.mensaje)
+      },
+      error=>{
+        this.error = true
+        alert("Error al procesar la solicitud")
+      }
+    )
+  }
+
 }

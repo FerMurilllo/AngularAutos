@@ -1,0 +1,87 @@
+<div class="container card" >
+    <div class="row card-body align-items-center">
+      <div class="col align-self-center">
+        <form [formGroup]="usuarios" #forma="ngForm">
+        
+           <div @IzquierdaDerecha class="form-floating mb-3">
+            <input type="text" [(ngModel)]="user.nombres" class="form-control" id="floatingIInput" minlength="5" #nombre="ngModel" required [ngClass]="{'is-valid': !nombre.invalid, 'is-invalid': nombre.invalid}" placeholder="Escribe tu nombre...">
+            <label for="floatingInput">Nombre</label>
+            <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf="nombre.errors?.['minlength']">
+                    Introduzca un Nombre con 5 Caracteres Minimo
+                </div>
+                <div *ngIf="nombre.errors?.['required']">
+                    Campo requerido.
+                </div>
+            </div> 
+          </div><br>
+
+          <div @IzquierdaDerecha class="form-floating mb-3">
+            <input type="text" [(ngModel)]="user.apellidos" class="form-control" id="floatingInput" #apellidos="ngModel" required [ngClass]="{'is-valid': !apellidos.invalid, 'is-invalid': apellidos.invalid}" placeholder="Escribe tus apellidos...">
+            <label for="floatingInput">Apellidos</label>
+            <div class="invalid-feedback" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)">
+                <div *ngIf="apellidos.errors?.['required']">
+                    Introduzca Apellidos Validos
+                </div>
+            </div> 
+          </div><br>
+
+          <div @DerechaIzquierda  class="form-floating">
+            <input [(ngModel)]="user.username" type="text" #username="ngModel" class="form-control"  required [ngClass]="{'is-valid': !username.invalid, 'is-invalid': username.invalid}"  placeholder="Escribe un usuario...">
+            <label for="floatingPassword">Usuario</label>
+            <div class="invalid-feedback" *ngIf="username.invalid && (username.dirty || username.touched)">
+                <div *ngIf="username.errors?.['minlength']">
+                    Introduzca un Usuario con 5 Caracteres Minimo
+                </div>
+                <div *ngIf="username.errors?.['required']">
+                    Introduzca un Usuario Valido
+                </div>
+            </div> 
+          </div><br>
+         
+          <div @IzquierdaDerecha class="form-floating mb-3">
+            <input [(ngModel)]="user.email" #email="ngModel" type="email" class="form-control" id="floatingInput" required [ngClass]="{'is-valid': !email.invalid, 'is-invalid': email.invalid}" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$">
+            <label for="floatingInput">Correo electronico</label>
+            <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors?.['required']">
+                  Introduzca un correo electrónico válido {{ email.value }}
+                </div>
+                <div *ngIf="email.errors && email.errors?.['pattern']">
+                  El correo electrónico no sigue el formato correcto. Ejemplo: name@example.com
+                  {{ email.value }}
+                </div>
+              </div>
+          </div> <br>
+
+          <div @DerechaIzquierda  class="form-floating">
+            <input [(ngModel)]="user.password" #password="ngModel" minlength="8" type="password" class="form-control" id="floatingPassword"  required [ngClass]="{'is-valid': !password.invalid, 'is-invalid': password.invalid}" placeholder="Password">
+            <label for="floatingPassword">Contraseña</label>
+            <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div *ngIf="password.errors?.['minlength']">
+                  Introduzca una Contraseña con 8 Caracteres Minimo
+                </div>
+                <div *ngIf="password.errors?.['required']">
+                  Introduzca una contraseña por favor
+                </div>
+              </div>
+          </div> <br>
+        
+          <div @IzquierdaDerecha  class="form-floating">
+            <input type="password" [(ngModel)]="user.password_confirmation" #password_confirmation="ngModel" class="form-control" id="floatingPasswordC" required [ngClass]="{'is-valid': !password_confirmation.invalid, 'is-invalid': password_confirmation.invalid}">
+            <label for="floatingPassword">Confirmar contrasena</label>
+            <div class="invalid-feedback" *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)">
+                <div *ngIf="password_confirmation.errors?.['required']">
+                  Introduzca una contraseña por favor
+                </div>
+                <div *ngIf="password_confirmation.errors?.['minlength']">
+                  Introduzca una Contraseña con 8 Caracteres Minimo
+                </div>
+                <div *ngIf="password !== password_confirmation || password_confirmation !== password">Las Contraseñas No Coinciden</div>
+              </div>
+          </div> <br>
+          <button @ArribaAbajo  (click)="send()" [disabled]="!forma.valid"  type="submit" class="btn btn-primary">Registrarme</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
